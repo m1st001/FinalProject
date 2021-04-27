@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Dao<T extends Entity> {
-    Optional<T> findById(long id) throws Exception;
-    //Custom exception needed//
-    List<T> getAll() throws Exception;
-    void save(T entity) throws Exception;
-    void delete(T entity) throws Exception;
 
+    Optional<T> findById(long id) throws DaoException;
+    List<T> findAll() throws DaoException;
+
+    void save(T entity) throws DaoException;
+    void deleteById(long id) throws DaoException;
 }

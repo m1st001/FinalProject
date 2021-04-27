@@ -1,4 +1,7 @@
 package com.epam.web.dao;
 
-public class ProductDao {
+import com.epam.web.entity.Product;
+
+public class ProductDao extends AbstractDao<Product>{
+
 }

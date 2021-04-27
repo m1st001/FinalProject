@@ -3,6 +3,7 @@ package com.epam.web;
 import com.epam.web.command.Command;
 import com.epam.web.command.CommandFactory;
 import com.epam.web.command.CommandResult;
+import com.epam.web.service.ServiceException;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
