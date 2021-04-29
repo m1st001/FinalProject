@@ -31,6 +31,11 @@ public abstract class AbstractDao<T extends Entity> implements Dao<T>{
         this.mapper = mapper;
         this.tableName = tableName;
     }
+
+    protected abstract void create(T entity) throws DaoException;
+
+    protected abstract void update(T entity) throws DaoException;
+
     private PreparedStatement createStatement(String query, Object ...params) throws SQLException {
 
         query = String.format(query, tableName);
@@ -93,33 +98,6 @@ public abstract class AbstractDao<T extends Entity> implements Dao<T>{
         return objects.toArray();
     }
 
-    protected Page<T> executePageQuery(String query, PageRequest pageRequest, Object ...params) throws DaoException {
-
-        int pageNumber = pageRequest.getPageNumber();
-        int pageSize = pageRequest.getPageSize();
-
-        int offset = (pageNumber - 1) * pageSize;
-
-        Object[] newParams = concatParams(pageSize, params, pageSize, offset);
-
-        try (PreparedStatement statement = createStatement(query, newParams);
-             ResultSet resultSet = statement.executeQuery()) {
-
-            int totalPages = 0;
-
-            List<T> entities = new ArrayList<>();
-            while (resultSet.next()) {
-                totalPages = resultSet.getInt(1);
-                T entity = mapper.map(resultSet);
-                entities.add(entity);
-            }
-
-            return new Page<>(entities, totalPages, pageNumber);
-
-        } catch (SQLException e) {
-            throw new DaoException(e);
-        }
-    }
 
     protected void executeUpdate(String query, Object ...params) throws DaoException {
 
@@ -144,12 +122,6 @@ public abstract class AbstractDao<T extends Entity> implements Dao<T>{
     }
 
     @Override
-    public Page<T> findAll(PageRequest pageRequest) throws DaoException {
-        String query = String.format(FIND_ALL_PAGE, tableName);
-        return executePageQuery(query, pageRequest);
-    }
-
-    @Override
     public void save(T entity) throws DaoException {
 
         if (entity.getId() == null) {
@@ -158,10 +130,6 @@ public abstract class AbstractDao<T extends Entity> implements Dao<T>{
             update(entity);
         }
     }
-
-    protected abstract void create(T entity) throws DaoException;
-
-    protected abstract void update(T entity) throws DaoException;
 
     @Override
     public void deleteById(long id) throws DaoException {
