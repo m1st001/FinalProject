@@ -8,6 +8,9 @@ import java.util.Optional;
 
 public class UserDao extends AbstractDao<User> {
     public static final String TABLE_NAME = "user";
+    private static final String CREATE = "insert into user (username, password, role) values (?, md5(?), ?)";
+    private static final String UPDATE = "update user set username = ?, password = md5(?), role = ? where id = ?";
+
 
     public UserDao(ProxyConnection connection) {
         super(connection, new UserMapper(), TABLE_NAME);

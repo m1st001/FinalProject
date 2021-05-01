@@ -16,8 +16,8 @@ CREATE TABLE product (
 
 CREATE TABLE recipe (
        id BIGINT NOT NULL AUTO_INCREMENT,
-       username VARCHAR(24) NOT NULL ,
-       productname VARCHAR(24) NOT NULL ,
+       user_id bigint not null,
+       product_id bigint not null,
        requestdate DATE NOT NULL ,
        status BOOL NOT NULL ,
        PRIMARY KEY (id)
