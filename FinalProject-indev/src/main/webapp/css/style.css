@@ -1,0 +1,113 @@
+.name{
+    position: absolute;
+    width: 268px;
+    height: 41px;
+    left: 826px;
+    top: 132px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+
+    color: #000000;
+
+}
+.background
+.white-box{
+    position: absolute;
+    width: 486px;
+    height: 465px;
+    left: 717px;
+    top: 105px;
+
+    background: #E9E8E8;
+    border-radius: 20px;
+}
+.username-input{
+    position: absolute;
+    width: 417px;
+    height: 64px;
+    left: 751px;
+    top: 214px;
+
+    background: #C4C4C4;
+    border-radius: 12px;
+}
+.username-input-text{
+    position: absolute;
+    width: 167px;
+    height: 41px;
+    left: 767px;
+    top: 226px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+
+    color: #888888;
+}
+.password-input{
+    position: absolute;
+    width: 417px;
+    height: 64px;
+    left: 751px;
+    top: 319px;
+
+    background: #C4C4C4;
+    border-radius: 12px;
+}
+.password-input-text{position: absolute;
+    width: 159px;
+    height: 41px;
+    left: 767px;
+    top: 331px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+
+    color: #888888;}
+.separator{
+    position: absolute;
+    width: 499px;
+    height: 13px;
+    left: 711px;
+    top: 429px;
+
+    background: #CECECE;
+}
+.login-button{
+    position: absolute;
+    width: 417px;
+    height: 64px;
+    left: 751px;
+    top: 476px;
+
+    background: #12A8C9;
+    border-radius: 12px;
+}
+.login-button-text{
+    position: absolute;
+    width: 109px;
+    height: 41px;
+    left: 905px;
+    top: 488px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: center;
+
+    color: #000000;
+}
